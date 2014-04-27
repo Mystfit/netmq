@@ -180,6 +180,16 @@ namespace NetMQ.zmq
 			s.Bind(addr);
 		}
 
+        public static int BindRandomPort(SocketBase s, String addr)
+        {
+            if (s == null || !s.CheckTag())
+            {
+                throw NetMQException.Create(ErrorCode.EFAULT);
+            }
+ 
+            return s.BindRandomPort(addr);
+        }
+
 		public static void Connect(SocketBase s, String addr)
 		{
 			if (s == null || !s.CheckTag())
