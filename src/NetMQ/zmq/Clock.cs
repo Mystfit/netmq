@@ -39,8 +39,7 @@ namespace NetMQ.zmq
 		{
 			try
 			{
-				if (Environment.OSVersion.Platform == PlatformID.Win32NT || Environment.OSVersion.Platform == PlatformID.Unix ||
-					Environment.OSVersion.Platform == (PlatformID)128)
+				if (Environment.OSVersion.Platform == PlatformID.Win32NT)
 				{
 					Opcode.Open();
 					s_rdtscSupported = true;
