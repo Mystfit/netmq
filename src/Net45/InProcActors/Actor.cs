@@ -182,9 +182,8 @@ namespace NetMQ.Actors
                     m_self.Send(ActorKnownMessages.END_PIPE);
                     m_self.WaitForSignal();
                 }
-                catch (AgainException ex)
-                {
-                                        
+                catch (AgainException)
+                {                         
                 }                                
 
                 m_self.Dispose();
