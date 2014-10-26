@@ -38,9 +38,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\Net45\NetMQScheduler.cs">
-      <Link>NetMQScheduler.cs</Link>
-    </Compile>
+    <Compile Include="NetMQScheduler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

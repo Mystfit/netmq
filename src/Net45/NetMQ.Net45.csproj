@@ -37,6 +37,13 @@
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="InProcActors\Actor.cs" />
+    <Compile Include="InProcActors\IShimHandler.cs" />
+    <Compile Include="InProcActors\KnownMessages.cs" />
+    <Compile Include="InProcActors\Shim.cs" />
+    <Compile Include="Monitoring\NetMQMonitor.cs" />
+    <Compile Include="Monitoring\NetMQMonitorEventArgs.cs" />
+    <Compile Include="NetMQBeacon.cs" />
     <Compile Include="NetMQScheduler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -253,7 +253,7 @@ namespace NetMQ.zmq
             {
                 //  One reference is added to shared messages. Non-shared messages
                 //  are turned into shared messages and reference count is set to 2.
-                if (src.m_flags.HasFlag(MsgFlags.Shared))
+                if(NetMQ.Compat.EnumExtensions.HasFlag(src.m_flags, MsgFlags.Shared))
                     src.m_atomicCounter.Increase(1);
                 else
                 {

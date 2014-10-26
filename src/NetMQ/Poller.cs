@@ -36,7 +36,7 @@ namespace NetMQ
         readonly List<NetMQTimer> m_timers = new List<NetMQTimer>();
         readonly List<NetMQTimer> m_zombies = new List<NetMQTimer>();
 
-        readonly CancellationTokenSource m_cancellationTokenSource;
+        volatile bool m_cancelled;
         readonly ManualResetEvent m_isStoppedEvent = new ManualResetEvent(false);
         private bool m_isStarted;
 
@@ -46,8 +46,6 @@ namespace NetMQ
         public Poller()
         {
             PollTimeout = 1000;
-
-            m_cancellationTokenSource = new CancellationTokenSource();
         }
 
         public Poller(params ISocketPollable[] sockets)
@@ -245,7 +243,7 @@ namespace NetMQ
 
         public void Start()
         {
-            PollWhile(() => !m_cancellationTokenSource.IsCancellationRequested);
+            PollWhile(() => !m_cancelled);
         }
 
         public void PollOnce()
@@ -385,7 +383,7 @@ namespace NetMQ
 
             if (m_isStarted)
             {
-                m_cancellationTokenSource.Cancel();
+                m_cancelled = true;
 
                 if (waitForCloseToComplete)
                 {

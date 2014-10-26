@@ -13,7 +13,7 @@ namespace NetMQ.Monitoring
         private bool m_isOwner;
         private Poller m_attachedPoller = null;
 
-        private volatile bool m_cancelled;
+        readonly CancellationTokenSource m_cancellationTokenSource = new CancellationTokenSource();
 
         private readonly ManualResetEvent m_isStoppedEvent = new ManualResetEvent(true);
 
@@ -215,7 +215,7 @@ namespace NetMQ.Monitoring
 
             try
             {
-                while (!m_cancelled)
+                while (!m_cancellationTokenSource.IsCancellationRequested)
                 {
                     MonitoringSocket.Poll(Timeout);
                 }
@@ -234,7 +234,7 @@ namespace NetMQ.Monitoring
                 throw new InvalidOperationException("Monitor attached to a poller, please detach from poller and don't use the stop method");
             }
 
-            m_cancelled = true;
+            m_cancellationTokenSource.Cancel();
             m_isStoppedEvent.WaitOne();
         }
 
