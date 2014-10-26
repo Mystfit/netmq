@@ -84,7 +84,7 @@ namespace NetMQ
         /// </summary>
         public SocketOptions Options { get; private set; }
 
-        internal SocketBase SocketHandle
+        public SocketBase SocketHandle
         {
             get
             {
