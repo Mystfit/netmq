@@ -191,6 +191,23 @@ namespace NetMQ.zmq
                 try
                 {
                     Socket.Select(readList, writeList, errorList, timeout != 0 ? timeout * 1000 : -1);
+
+                    if (timeout == 0 && m_checkRead.Count > 0 && readList.Count == 0 && writeList.Count == 0 && errorList.Count == 0)
+                    {
+                        // Ok, OS X and iOS workaround.
+                        // Because of platform specific behaviour regarding Socket.Select
+                        // we might have relased since a connection was established but the socket is not in the read list.
+                        // Detect this by checking the readList using poll with 0 timeout.
+
+                        Socket[] temp = m_checkRead.ToArray();
+                        foreach (Socket s in temp)
+                        {
+                            if (s.Poll(0, SelectMode.SelectRead))
+                            {
+                                readList.Add(s);
+                            }
+                        }
+                    }
                 }
                 catch (SocketException)
                 {

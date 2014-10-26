@@ -323,6 +323,23 @@ namespace NetMQ.zmq
                 try
                 {
                     System.Net.Sockets.Socket.Select(inset, outset, errorset, currentTimeoutMicroSeconds);
+
+                    if (currentTimeoutMicroSeconds == -1 && readList.Count > 0 && inset.Count == 0 && outset.Count == 0 && errorset.Count == 0)
+                    {
+                        // Ok, OS X and iOS workaround.
+                        // Because of platform specific behaviour regarding Socket.Select
+                        // we might have relased since a connection was established but the socket is not in the read list.
+                        // Detect this by checking the readList using poll with 0 timeout.
+
+                        Socket[] temp = readList.ToArray();
+                        foreach (Socket s in temp)
+                        {
+                            if (s.Poll(0, SelectMode.SelectRead))
+                            {
+                                inset.Add(s);
+                            }
+                        }
+                    }
                 }
                 catch (SocketException ex)
                 {

@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetMQ", "NetMQ\NetMQ.csproj", "{82934BAC-07FB-41AC-AE59-46FEE6026A40}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Performance", "Performance", "{1D49A4C6-C03C-4F72-9A27-42C8E5219BBA}"
@@ -71,6 +73,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RequestReplyClient", "Samples\Load Balancing Pattern\Extended Request Reply\RequestReplyClient\RequestReplyClient.csproj", "{5A370F99-247A-4238-8062-D6EC28543361}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RequestReplyWorker", "Samples\Load Balancing Pattern\Extended Request Reply\RequestReplyWorker\RequestReplyWorker.csproj", "{63AAFEDF-47DC-4137-BE93-2F9AB4DA5136}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetMQ.Net45", "Net45\NetMQ.Net45.csproj", "{DAC200F1-380F-4E95-B4B1-C8F7A8D72AEA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetMQ.Net35", "Net35\NetMQ.Net35.csproj", "{10BAFC2F-FF68-4EE3-A330-8A8FD1CDF6A6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -361,6 +366,30 @@ Global
 		{63AAFEDF-47DC-4137-BE93-2F9AB4DA5136}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{63AAFEDF-47DC-4137-BE93-2F9AB4DA5136}.Release|x64.ActiveCfg = Release|Any CPU
 		{63AAFEDF-47DC-4137-BE93-2F9AB4DA5136}.Release|x86.ActiveCfg = Release|Any CPU
+		{DAC200F1-380F-4E95-B4B1-C8F7A8D72AEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAC200F1-380F-4E95-B4B1-C8F7A8D72AEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAC200F1-380F-4E95-B4B1-C8F7A8D72AEA}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{DAC200F1-380F-4E95-B4B1-C8F7A8D72AEA}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{DAC200F1-380F-4E95-B4B1-C8F7A8D72AEA}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{DAC200F1-380F-4E95-B4B1-C8F7A8D72AEA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{DAC200F1-380F-4E95-B4B1-C8F7A8D72AEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAC200F1-380F-4E95-B4B1-C8F7A8D72AEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DAC200F1-380F-4E95-B4B1-C8F7A8D72AEA}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{DAC200F1-380F-4E95-B4B1-C8F7A8D72AEA}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{DAC200F1-380F-4E95-B4B1-C8F7A8D72AEA}.Release|x64.ActiveCfg = Release|Any CPU
+		{DAC200F1-380F-4E95-B4B1-C8F7A8D72AEA}.Release|x86.ActiveCfg = Release|Any CPU
+		{10BAFC2F-FF68-4EE3-A330-8A8FD1CDF6A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10BAFC2F-FF68-4EE3-A330-8A8FD1CDF6A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10BAFC2F-FF68-4EE3-A330-8A8FD1CDF6A6}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{10BAFC2F-FF68-4EE3-A330-8A8FD1CDF6A6}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{10BAFC2F-FF68-4EE3-A330-8A8FD1CDF6A6}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{10BAFC2F-FF68-4EE3-A330-8A8FD1CDF6A6}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{10BAFC2F-FF68-4EE3-A330-8A8FD1CDF6A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10BAFC2F-FF68-4EE3-A330-8A8FD1CDF6A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10BAFC2F-FF68-4EE3-A330-8A8FD1CDF6A6}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{10BAFC2F-FF68-4EE3-A330-8A8FD1CDF6A6}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{10BAFC2F-FF68-4EE3-A330-8A8FD1CDF6A6}.Release|x64.ActiveCfg = Release|Any CPU
+		{10BAFC2F-FF68-4EE3-A330-8A8FD1CDF6A6}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -8,8 +8,6 @@ using NetMQ.Security.V0_1.HandshakeMessages;
 
 namespace NetMQ.Security.V0_1
 {
-
-
     class HandshakeLayer : IDisposable
     {
         private readonly SecureChannel m_secureChannel;
