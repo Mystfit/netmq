@@ -20,6 +20,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Extended Request Reply", "Extended Request Reply", "{31C67BA1-D6A4-4CA3-8332-D35F950C5F63}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetMQ.Tests", "NetMQ.Tests\NetMQ.Tests.csproj", "{526095CB-16A6-47C3-9F45-72A8530E5762}"
+	ProjectSection(ProjectDependencies) = postProject
+		{DAC200F1-380F-4E95-B4B1-C8F7A8D72AEA} = {DAC200F1-380F-4E95-B4B1-C8F7A8D72AEA}
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{0D41951D-83C3-45B0-B319-A424EBF530E2}"
 EndProject
@@ -373,33 +376,25 @@ Global
 		{DAC200F1-380F-4E95-B4B1-C8F7A8D72AEA}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
 		{DAC200F1-380F-4E95-B4B1-C8F7A8D72AEA}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
 		{DAC200F1-380F-4E95-B4B1-C8F7A8D72AEA}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{DAC200F1-380F-4E95-B4B1-C8F7A8D72AEA}.Debug|x64.Build.0 = Debug|Any CPU
 		{DAC200F1-380F-4E95-B4B1-C8F7A8D72AEA}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{DAC200F1-380F-4E95-B4B1-C8F7A8D72AEA}.Debug|x86.Build.0 = Debug|Any CPU
 		{DAC200F1-380F-4E95-B4B1-C8F7A8D72AEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DAC200F1-380F-4E95-B4B1-C8F7A8D72AEA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DAC200F1-380F-4E95-B4B1-C8F7A8D72AEA}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{DAC200F1-380F-4E95-B4B1-C8F7A8D72AEA}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{DAC200F1-380F-4E95-B4B1-C8F7A8D72AEA}.Release|x64.ActiveCfg = Release|Any CPU
-		{DAC200F1-380F-4E95-B4B1-C8F7A8D72AEA}.Release|x64.Build.0 = Release|Any CPU
 		{DAC200F1-380F-4E95-B4B1-C8F7A8D72AEA}.Release|x86.ActiveCfg = Release|Any CPU
-		{DAC200F1-380F-4E95-B4B1-C8F7A8D72AEA}.Release|x86.Build.0 = Release|Any CPU
 		{10BAFC2F-FF68-4EE3-A330-8A8FD1CDF6A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{10BAFC2F-FF68-4EE3-A330-8A8FD1CDF6A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{10BAFC2F-FF68-4EE3-A330-8A8FD1CDF6A6}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
 		{10BAFC2F-FF68-4EE3-A330-8A8FD1CDF6A6}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
 		{10BAFC2F-FF68-4EE3-A330-8A8FD1CDF6A6}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{10BAFC2F-FF68-4EE3-A330-8A8FD1CDF6A6}.Debug|x64.Build.0 = Debug|Any CPU
 		{10BAFC2F-FF68-4EE3-A330-8A8FD1CDF6A6}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{10BAFC2F-FF68-4EE3-A330-8A8FD1CDF6A6}.Debug|x86.Build.0 = Debug|Any CPU
 		{10BAFC2F-FF68-4EE3-A330-8A8FD1CDF6A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{10BAFC2F-FF68-4EE3-A330-8A8FD1CDF6A6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{10BAFC2F-FF68-4EE3-A330-8A8FD1CDF6A6}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{10BAFC2F-FF68-4EE3-A330-8A8FD1CDF6A6}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{10BAFC2F-FF68-4EE3-A330-8A8FD1CDF6A6}.Release|x64.ActiveCfg = Release|Any CPU
-		{10BAFC2F-FF68-4EE3-A330-8A8FD1CDF6A6}.Release|x64.Build.0 = Release|Any CPU
 		{10BAFC2F-FF68-4EE3-A330-8A8FD1CDF6A6}.Release|x86.ActiveCfg = Release|Any CPU
-		{10BAFC2F-FF68-4EE3-A330-8A8FD1CDF6A6}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -433,9 +428,6 @@ Global
 		{48AFF127-33AE-4462-9CEF-B12F2FE6EB29} = {0D41951D-83C3-45B0-B319-A424EBF530E2}
 		{A5499CDF-674E-42C4-B9C0-D1F18A61B0C6} = {48AFF127-33AE-4462-9CEF-B12F2FE6EB29}
 		{47791A50-18FA-4534-974A-9C38AAF9EEAC} = {A5499CDF-674E-42C4-B9C0-D1F18A61B0C6}
-	EndGlobalSection
-	GlobalSection(Performance) = preSolution
-		HasPerformanceSessions = true
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = NetMQ.Tests\NetMQ.Tests.csproj

@@ -37,13 +37,25 @@
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="InProcActors\Actor.cs" />
-    <Compile Include="InProcActors\IShimHandler.cs" />
-    <Compile Include="InProcActors\KnownMessages.cs" />
-    <Compile Include="InProcActors\Shim.cs" />
-    <Compile Include="NetMQBeacon.cs" />
+    <Compile Include="..\NetMQ\InProcActors\Actor.cs">
+      <Link>InProcActors\Actor.cs</Link>
+    </Compile>
+    <Compile Include="..\NetMQ\InProcActors\IShimHandler.cs">
+      <Link>InProcActors\IShimHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\NetMQ\InProcActors\KnownMessages.cs">
+      <Link>InProcActors\KnownMessages.cs</Link>
+    </Compile>
+    <Compile Include="..\NetMQ\InProcActors\Shim.cs">
+      <Link>InProcActors\Shim.cs</Link>
+    </Compile>
+    <Compile Include="..\NetMQ\NetMQBeacon.cs">
+      <Link>NetMQBeacon.cs</Link>
+    </Compile>
+    <Compile Include="..\NetMQ\NetMQScheduler.cs">
+      <Link>NetMQScheduler.cs</Link>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="NetMQScheduler.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NetMQ\NetMQ.csproj">
@@ -51,6 +63,7 @@
       <Name>NetMQ</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

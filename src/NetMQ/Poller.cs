@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
 using NetMQ.Compat;
 using NetMQ.zmq;
 
@@ -36,7 +37,7 @@ namespace NetMQ
         readonly List<NetMQTimer> m_timers = new List<NetMQTimer>();
         readonly List<NetMQTimer> m_zombies = new List<NetMQTimer>();
 
-        volatile bool m_cancelled;
+        readonly CancellationTokenSource m_cancellationTokenSource = new CancellationTokenSource();
         readonly ManualResetEvent m_isStoppedEvent = new ManualResetEvent(false);
         private bool m_isStarted;
 
@@ -243,7 +244,7 @@ namespace NetMQ
 
         public void Start()
         {
-            PollWhile(() => !m_cancelled);
+            PollWhile(() => !m_cancellationTokenSource.IsCancellationRequested);
         }
 
         public void PollOnce()
@@ -264,7 +265,7 @@ namespace NetMQ
                 throw new InvalidOperationException("Poller is started");
             }
 
-            if(Thread.CurrentThread.Name == null)
+            if (Thread.CurrentThread.Name == null)
                 Thread.CurrentThread.Name = "NetMQPollerThread";
 
             m_isStoppedEvent.Reset();
@@ -383,7 +384,7 @@ namespace NetMQ
 
             if (m_isStarted)
             {
-                m_cancelled = true;
+                m_cancellationTokenSource.Cancel();
 
                 if (waitForCloseToComplete)
                 {

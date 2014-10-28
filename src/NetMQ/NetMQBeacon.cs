@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.NetworkInformation;
 using System.Net.Sockets;
 using System.Text;
+using NetMQ.Compat;
 using NetMQ.Actors;
 using NetMQ.InProcActors;
 using NetMQ.zmq;
@@ -236,7 +237,7 @@ namespace NetMQ
                     }
                 }
 
-                m_udpSocket.Dispose();             
+                (m_udpSocket as IDisposable).Dispose();             
             }
 
             private void SendUdpFrame(NetMQFrame frame)
