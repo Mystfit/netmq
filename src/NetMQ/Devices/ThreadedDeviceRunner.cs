@@ -13,8 +13,8 @@ namespace NetMQ.Devices
         {
         }
 
-		public override void Start() {
+        public override void Start() {
             Task.Factory.StartNew(Device.Run, TaskCreationOptions.LongRunning);
-		}
-	}
+        }
+    }
 }
