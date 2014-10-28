@@ -25,6 +25,7 @@ using System.Net.Sockets;
 using System.Diagnostics;
 using System.Security;
 using System.Runtime.InteropServices;
+using NetMQ.Compat;
 
 namespace NetMQ.zmq
 {
@@ -169,6 +170,19 @@ namespace NetMQ.zmq
             {
                 m_handle =
                     new Socket(m_address.Address.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
+
+                if (!m_options.IPv4Only && m_address.Address.AddressFamily == AddressFamily.InterNetworkV6)		
+                {		
+                    try		
+                    {		
+                        // This is not supported on old windows operation system and might throw exception		
+                        m_handle.SetSocketOption(SocketOptionLevel.IPv6, (SocketOptionName)NetMQ.Compat.EnumExtensions.SocketOptionName.IPv6Only, 0);		
+                    }		
+                    catch		
+                    {                        		
+                    }		
+                }		
+
 
                 //handle.Blocking = false;
 

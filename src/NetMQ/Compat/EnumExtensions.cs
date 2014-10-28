@@ -31,5 +31,7 @@ namespace NetMQ.Compat
 
         }
 
+        public enum SocketOptionName { IPv6Only = 27 };
+
     }
 }
