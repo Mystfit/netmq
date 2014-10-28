@@ -1,4 +1,5 @@
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace NetMQ.Devices
 {
@@ -13,7 +14,7 @@ namespace NetMQ.Devices
         }
 
 		public override void Start() {
-            new Thread(Device.Run).Start();
+            Task.Factory.StartNew(Device.Run, TaskCreationOptions.LongRunning);
 		}
 	}
 }
