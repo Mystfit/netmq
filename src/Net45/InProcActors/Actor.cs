@@ -30,7 +30,10 @@ namespace NetMQ.Actors
         private readonly PairSocket m_self;
         private readonly Shim<T> m_shim;
         private readonly Random rand = new Random();
+        #pragma warning disable 414
         private T m_state;
+        #pragma warning restore 414
+
 
         private EventDelegatorHelper<NetMQActorEventArgs<T>> m_receiveEventDelegatorHelper;
         private EventDelegatorHelper<NetMQActorEventArgs<T>> m_sendEventDelegatorHelper; 
@@ -126,7 +129,7 @@ namespace NetMQ.Actors
         private void CreateShimThread(T state)
         {
             //start Shim thread
-            Task shimTask = Task.Factory.StartNew(
+            Task.Factory.StartNew(
                 x =>
                 {
                     try
