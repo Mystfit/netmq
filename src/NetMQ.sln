@@ -75,8 +75,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetMQ.Net45", "Net45\NetMQ.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetMQ.Net35", "Net35\NetMQ.Net35.csproj", "{10BAFC2F-FF68-4EE3-A330-8A8FD1CDF6A6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetMQ.Net45", "Net45\NetMQ.Net45.csproj", "{DAC200F1-380F-4E95-B4B1-C8F7A8D72AEA}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
