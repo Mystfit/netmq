@@ -54,6 +54,53 @@ namespace NetMQ.Tests
         }
 
         [Test]
+        public void LatePollerStart()
+        {
+            using (var pub = new PublisherSocket())
+            using (var sub = new SubscriberSocket())
+            using (var poller = new NetMQPoller { sub })
+            {
+                int port = pub.BindRandomPort("tcp://127.0.0.1");
+
+                bool received = false;
+
+                //Starting the poller here will cause all subsequently added sockets to never receive messages
+                poller.RunAsync();
+                
+                //Connect subscriber to publisher and subscribe to topic
+                sub.Subscribe("topic");
+                sub.Connect("tcp://127.0.0.1:" + port);
+
+                //... starting the poller here, the subscriber WILL receive messages
+                //poller.RunAsync();
+
+                sub.ReceiveReady += (s, e) =>
+                {
+                    bool more;
+                    string topic = e.Socket.ReceiveFrameString(out more);
+                    string val = e.Socket.ReceiveFrameString(out more);
+                    received = true;
+                };
+
+                System.Threading.Thread.Sleep(100);
+                pub.SendMoreFrame("topic");
+                pub.SendFrame("value");
+
+                int maxTimeout = 3000;
+                int elapsedTime = maxTimeout;
+                
+                while(!received && elapsedTime > 0){
+                    System.Threading.Thread.Sleep(1000);
+                    elapsedTime -= 1000;
+                }
+
+                Assert.IsTrue(received);
+
+                poller.StopAsync();
+            }
+        }
+
+        [Test]
         public void Monitoring()
         {
             var listeningEvent = new ManualResetEvent(false);
